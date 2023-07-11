@@ -9,24 +9,23 @@ export default class PostListItem extends Component {
       important: false,
       like: false
     };
-    this.onImportant = this.onImportant.bind(this);
-    this.onLike = this.onLike.bind(this);
+    // this.onImportant = this.onImportant.bind(this);
+    // this.onLike = this.onLike.bind(this);
   }
 
-  onImportant() {
+  onImportant = () => {
     this.setState(({important}) => ({
       important: !important
     }));
   }
 
-  onLike() {
-      this.setState(({like}) => ({
-        like: !like
-      }));
-    }
+  onLike = () => {
+    this.setState(({like}) => ({
+      like: !like
+    }));
+  }
 
   render() {
-
     const {label} = this.props;
     const {important, like} = this.state;
 
@@ -64,4 +63,4 @@ export default class PostListItem extends Component {
       </div>
     )
   }
-};
+}
