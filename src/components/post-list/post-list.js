@@ -3,7 +3,7 @@ import PostListItem from '../post-list-item';
 import { ListGroup } from 'reactstrap';
 import './post-list.css';
 
-const PostList = ({posts}) => {
+const PostList = ({posts, onDelete}) => {
 
   const elements = posts.map((item) => {
 
@@ -11,11 +11,16 @@ const PostList = ({posts}) => {
 
     return (
       <li key={id} className="list-group-item">
-        <PostListItem
+        {/* Cтарая запись */}
+        {/* <PostListItem
           label={itemProps.label}
-          important={itemProps.important} />
+          important={itemProps.important} /> */}
 
-        {/* Простая запись, новый синитаксис <PostListItem {...itemProps}/>   */}
+        {/* Простая запись, новый синитаксис  */}
+        <PostListItem {...itemProps}
+        onDelete={() => {
+          onDelete(id);
+        }}/> 
       </li>
     )
   });
